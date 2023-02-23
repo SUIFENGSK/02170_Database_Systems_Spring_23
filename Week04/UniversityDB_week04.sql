@@ -316,4 +316,29 @@ SELECT DeptName, COUNT(InstID) AS Total FROM Department NATURAL LEFT OUTER JOIN 
 SELECT StudName, Title FROM Student
 RIGHT OUTER JOIN Takes ON Student.StudID = Takes.StudID 
 LEFT OUTER JOIN Course ON Takes.CourseID = Course.CourseID;
-
+-- 4.2.3
+DELETE FROM COURSE WHERE CourseID='BIO-301';
+-- The course with id 'BIO-301' will be deleted as well as in the section, takes, teacher etc tables.
+-- 4.2.4
+CREATE VIEW SeniorInstructors(InstID, InstName, DeptName) AS (SELECT InstID, InstName, DeptName FROM Instructor WHERE Salary > 80000);
+SELECT * FROM SeniorInstructors;
+-- 4.2.5
+-- a)
+CREATE USER 'Karen' IDENTIFIED BY 'Karen123';
+CREATE USER 'Linda' IDENTIFIED BY 'Linda123';
+CREATE USER 'Susan' IDENTIFIED BY 'Susan123';
+-- b)
+GRANT SELECT ON *.* TO 'Karen';
+GRANT ALL ON *.* TO 'Linda';
+GRANT ALL ON *.* TO 'Susan';
+-- f)
+SET PASSWORD = Password('KarenSecret');
+-- g)
+USE University; 
+SELECT * FROM Course;
+INSERT Course VALUES ('FIN-202','Test','Finance',3);
+-- h)
+SELECT user FROM mysql.user;
+DROP USER 'Karen';
+DROP USER 'Linda';
+DROP USER 'Susan';
