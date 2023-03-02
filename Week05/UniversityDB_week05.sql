@@ -414,6 +414,7 @@ BEGIN
 END //
 DELIMITER ;
 SELECT DISTINCT Building, BuildingCapacityFct(Building) AS SumCapacity FROM Classroom;
+DROP FUNCTION IF EXISTS BuildingCapacityFct;
 -- 5.2.2
 DROP PROCEDURE IF EXISTS InsertTimeSlot
 DELIMITER //
@@ -498,6 +499,6 @@ LuckyNo INTEGER);
 CREATE EVENT RollBall
 ON SCHEDULE EVERY 10 SECOND
 DO
-INSERT BallRolls (LuckyNo) VALUES (1+FLOOR(6*RAND()));
+INSERT BallRolls (LuckyNo) VALUES (FLOOR(37*RAND()));
 SELECT * FROM BallRolls;
 SET GLOBAL event_scheduler = 0;
