@@ -68,8 +68,11 @@ delimiter ;
 
 -- Examples
 call AddPurchaseToOrder('O00000', 'P00001', 5); -- add row
+SELECT * FROM purchase;
 call AddPurchaseToOrder('O00000', 'P00001', 5); -- update row exists
+SELECT * FROM purchase;
 call AddPurchaseToOrder('O00000', 'P00001', 500); -- not in stock
+SELECT * FROM purchase;
 
 
 -- Trigger that checks that a customers password is at least 6 charectes long -
@@ -88,7 +91,9 @@ DELIMITER ;
 
 -- Example --
 INSERT customer VALUES ('C00003', 'Simon', '45', '61799900', '123', 'Oakstorm road 34'); -- Not inserted --
+SELECT * FROM customer;
 INSERT customer VALUES ('C00003', 'Simon', '45', '61799900', 'password', 'Oakstorm road 34'); -- Inserted --
+SELECT * FROM customer;
 
 
 -- Trigger that checks that before adding an employee, their salary is within the range of the job_function --
@@ -110,8 +115,11 @@ DELIMITER ;
 
 -- Example --
 INSERT employee VALUES ('E00011', 'Stocker', 'D004', 'Steve', '45', '231617645654', 40000, '2022-07-02'); -- Not inserted --
+SELECT * FROM customer;
 INSERT employee VALUES ('E00011', 'Stocker', 'D004', 'Steve', '45', '231617645654', 72000, '2022-07-02'); -- Not inserted --
+SELECT * FROM customer;
 INSERT employee VALUES ('E00011', 'Stocker', 'D004', 'Steve', '45', '231617645654', 55000, '2022-07-02'); -- Inserted --
+SELECT * FROM customer;
 
 
 -- 8. SQL Table Modifications

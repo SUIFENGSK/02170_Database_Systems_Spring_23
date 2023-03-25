@@ -141,10 +141,10 @@ INSERT product VALUES
 ('P00002', 'Orange', 30, 300);
 
 INSERT purchase VALUES
-('O00000', 'P00000', 10, 100),
-('O00001', 'P00001', 20, 400),
-('O00002', 'P00002', 30, 900),
-('O00003', 'P00002', 30, 900);
+('O00000', 'P00000', 10, 10),
+('O00001', 'P00001', 20, 20),
+('O00002', 'P00002', 30, 30),
+('O00003', 'P00002', 30, 30);
 
 -- 5.2 Use SQL SELECT * FROM table to list instances of all tables and views.
 SELECT * FROM customer;
