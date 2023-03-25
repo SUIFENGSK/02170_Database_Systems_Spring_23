@@ -317,8 +317,6 @@ SELECT StudName, Title FROM Student
 RIGHT OUTER JOIN Takes ON Student.StudID = Takes.StudID 
 LEFT OUTER JOIN Course ON Takes.CourseID = Course.CourseID
 ORDER BY StudName;
--- OR
-SELECT StudName, Title FROM (Student NATURAL JOIN Takes) JOIN Course USING (CourseID) ORDER BY StudName;
 -- 4.2.3
 DELETE FROM COURSE WHERE CourseID='BIO-301';
 -- The course with id 'BIO-301' will be deleted as well as in the section, takes, teacher etc tables.
@@ -327,13 +325,13 @@ CREATE VIEW SeniorInstructors(InstID, InstName, DeptName) AS (SELECT InstID, Ins
 SELECT * FROM SeniorInstructors;
 -- 4.2.5
 -- a)
-CREATE USER 'Karen'@'localhost' IDENTIFIED BY 'SetPassword';
-CREATE USER 'Linda'@'localhost' IDENTIFIED BY 'SetPassword';
-CREATE USER 'Susan'@'localhost' IDENTIFIED BY 'SetPassword';
+CREATE USER 'Karen' IDENTIFIED BY 'Karen123';
+CREATE USER 'Linda' IDENTIFIED BY 'Linda123';
+CREATE USER 'Susan' IDENTIFIED BY 'Susan123';
 -- b)
-GRANT SELECT ON *.* TO 'Karen'@'localhost';
-GRANT ALL ON *.* TO 'Linda'@'localhost';
-GRANT ALL ON *.* TO 'Susan'@'localhost';
+GRANT SELECT ON *.* TO 'Karen';
+GRANT ALL ON *.* TO 'Linda';
+GRANT ALL ON *.* TO 'Susan';
 -- f)
 SET PASSWORD = Password('KarenSecret');
 -- g)
@@ -342,6 +340,6 @@ SELECT * FROM Course;
 INSERT Course VALUES ('FIN-202','Test','Finance',3);
 -- h)
 SELECT user FROM mysql.user;
-DROP USER 'Karen'@'localhost';
-DROP USER 'Linda'@'localhost';
-DROP USER 'Susan'@'localhost';
+DROP USER 'Karen';
+DROP USER 'Linda';
+DROP USER 'Susan';
