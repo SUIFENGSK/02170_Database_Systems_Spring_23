@@ -1,14 +1,14 @@
 -- 6. SQL Data Queries
 -- Give at least 3 examples of typical select SQL statements with order by, group by and joins etc. 
 
--- order by statement
+-- order by statements
 SELECT * FROM employee ORDER BY salary DESC;
 SELECT * FROM product ORDER BY price DESC;
 
 -- group by statement
 SELECT job_title, count(*) FROM employee GROUP BY job_title;
 
--- Join statements
+-- join statements
 SELECT job_title, name FROM job_function NATURAL JOIN employee GROUP BY name;
 
 SELECT  orderID,prodID, prod_name, customerID FROM purchase NATURAL JOIN shop_order
@@ -90,7 +90,7 @@ end//
 DELIMITER ;
 
 -- Example --
-INSERT customer VALUES ('C00003', 'Simon', '45', '61799900', '123', 'Oakstorm road 34'); -- Not inserted --
+INSERT customer VALUES ('C00003', 'Simon', '45', '61799900', '123', 'Oakstorm road 34'); -- Not inserted and Throw exception --
 SELECT * FROM customer;
 INSERT customer VALUES ('C00003', 'Simon', '45', '61799900', 'password', 'Oakstorm road 34'); -- Inserted --
 SELECT * FROM customer;
@@ -114,9 +114,9 @@ end//
 DELIMITER ;
 
 -- Example --
-INSERT employee VALUES ('E00011', 'Stocker', 'D004', 'Steve', '45', '231617645654', 40000, '2022-07-02'); -- Not inserted --
+INSERT employee VALUES ('E00011', 'Stocker', 'D004', 'Steve', '45', '231617645654', 40000, '2022-07-02'); -- Not inserted and Throw exception --
 SELECT * FROM customer;
-INSERT employee VALUES ('E00011', 'Stocker', 'D004', 'Steve', '45', '231617645654', 72000, '2022-07-02'); -- Not inserted --
+INSERT employee VALUES ('E00011', 'Stocker', 'D004', 'Steve', '45', '231617645654', 72000, '2022-07-02'); -- Not inserted and Throw exception --
 SELECT * FROM customer;
 INSERT employee VALUES ('E00011', 'Stocker', 'D004', 'Steve', '45', '231617645654', 55000, '2022-07-02'); -- Inserted --
 SELECT * FROM customer;
