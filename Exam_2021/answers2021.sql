@@ -6,9 +6,9 @@
 -- Answer to question 1: 
 -------------------------------------------------------------------------------------------------------
 SELECT * FROM disease WHERE disease.diseaseType='infectious';
--- diseaseName | diseaseType
--- Covid 19    | infectious
--- influenza   | infectious
+-- diseaseName
+-- Covid 19
+-- influenza 
 
 -------------------------------------------------------------------------------------------------------
 -- Answer to question 2:
@@ -50,10 +50,7 @@ SELECT roomNO, NumberOfPatientsInRoom(roomNO) AS patientNum FROM room;
 -- Answer to question 5:
 -------------------------------------------------------------------------------------------------------
 
-SELECT s.patientId, s.diseaseName
-FROM suffers s
-JOIN patient p ON s.patientId = p.patientId
-LEFT JOIN doctor d ON p.roomNo IS NOT NULL AND p.roomNo = d.roomNo AND s.diseaseName = d.specialty
-WHERE d.doctorId IS NULL;
+(select * from suffers) EXCEPT (select patientId, specialty from doctor natural join treats);
 -- patientID | diseaseName
+-- p1        | cancer
 -- p2        | stroke
